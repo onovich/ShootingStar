@@ -5,3 +5,6 @@ Assembly-CSharp.csproj
 ShootingStar.sln
 Library
 *.sln
+.idea
+Logs
+obj
