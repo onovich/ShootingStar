@@ -4,15 +4,29 @@ using UnityEngine;
 
 public class EnemyEntity : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public void Rush()
     {
-        
+
+    }
+    public void AttackDoor()
+    {
+
+    }
+    public void ShootDoor()
+    {
+
+    }
+    public bool SeeDoor()
+    {
+        return false;
+    }
+    public bool ReachDoor()
+    {
+        return false;
+    }
+    public bool BreakDoor()
+    {
+        return false;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

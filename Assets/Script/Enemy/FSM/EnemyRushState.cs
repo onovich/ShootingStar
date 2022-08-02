@@ -2,17 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyRushState : MonoBehaviour
+public class EnemyRushState : FSMState
 {
-    // Start is called before the first frame update
-    void Start()
+    public EnemyRushState(FSMSystem fsm) : base(fsm)
     {
-        
+        stateID = StateID.Rush;
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void Act(GameObject enemy)
     {
-        
+        enemy.GetComponent<EnemyEntity>().Rush();
+    }
+
+    public override void Reason(GameObject enemy)
+    {
+        if (enemy.GetComponent<EnemyEntity>().SeeDoor())
+        {
+            fsm.PerformTransition(Transition.SeeDoor);
+
+        }
     }
 }
