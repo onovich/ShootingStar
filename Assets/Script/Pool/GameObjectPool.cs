@@ -8,9 +8,6 @@ public class GameObjectPool : MonoBehaviour
     private string poolName;
     public int maxCount = 30;
     public int minCount = 5;
-    //[SerializeField]
-    //public Queue<GameObject> poolQueue;
-    //public ConcurrentQueue<GameObject> poolCCQueue;
 
     public Stack<GameObject> poolStack;
     public GameObject preFab;
@@ -21,8 +18,6 @@ public class GameObjectPool : MonoBehaviour
 
     GameObjectPoolManager manager;
 
-    //属性
-    //private Transform PoolTrans { get { return transform; } }
 
     public void InitDeadLine()
     {
@@ -42,8 +37,6 @@ public class GameObjectPool : MonoBehaviour
         manager = GameObjectPoolManager.instance;
         instanceParentTrans = manager.instanceContent.transform;
 
-        //poolQueue = new Queue<GameObject>();
-        //poolCCQueue = new ConcurrentQueue<GameObject>();
         poolStack = new Stack<GameObject>();
         poolName = objPoolName;
         parentTrans = objTransform;
@@ -56,7 +49,6 @@ public class GameObjectPool : MonoBehaviour
         gameObject.transform.SetParent(parentTrans);
         gameObject.name = preFab.name + Time.time;
         gameObject.SetActive(false);
-        //StoreInstance(gameObject);
         return gameObject;
 
     }
@@ -115,11 +107,9 @@ public class GameObjectPool : MonoBehaviour
     }
 
     //TEST
+    /*
     private void Update()
     {
-        //foreach(GameObject obj in poolQueue)
-
-        //foreach(GameObject obj in poolCCQueue)
 
         foreach (GameObject obj in poolStack)
         {
@@ -131,24 +121,13 @@ public class GameObjectPool : MonoBehaviour
         }
 
     }
-
+    */
 
     private void StoreInstance(GameObject gameObject)
     {
-        /*
-        if (gameObject == null)
-        {
-            Debug.LogError("空对象想要入池！");
-        }
-        */
-
-        //池子未满，则将对象推入池中
-        //if (poolQueue.Count < maxCount)
-        //if (poolCCQueue.Count < maxCount)
+        
         if (poolStack.Count < maxCount)
         {
-            //Debug.Log("对象已入池:当前queueCount:"+poolQueue.Count+"maxCount="+maxCount);
-            //Debug.Log("对象已入池:当前queueCount:" + poolCCQueue.Count + "maxCount=" + maxCount);
             Debug.Log("对象已入池:当前stackCount:" + poolStack.Count + "maxCount=" + maxCount);
             if (gameObject == null)
             {
@@ -187,15 +166,7 @@ public class GameObjectPool : MonoBehaviour
 
     public virtual void Destroy()
     {
-        //poolQueue.Clear();
-        /*
-        GameObject obj;
         
-        while(poolCCQueue.TryDequeue(out obj))
-        {
-            //
-        }
-        */
         poolStack.Clear();
     }
 }

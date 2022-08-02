@@ -16,14 +16,13 @@ public class EnemyPool : GameObjectPool
 
     }
 
-    /*
+    
     public override GameObject GetInstance(Vector2 position, float lifetime)
     {
-        lifetime = 5;
         return base.GetInstance(position, lifetime);
 
     }
-    */
+    
 
     public override void Destroy()
     {
