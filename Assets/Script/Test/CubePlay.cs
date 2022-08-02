@@ -26,15 +26,15 @@ public class CubePlay : MonoBehaviour
     {
         isOver = false;
     }
-    bool isDrag = false;
+    //bool isDrag = false;
     void OnMouseDrag ()
     {
         Vector3 mousePoint = Input.mousePosition;
         Vector3 pos = Camera.main.ScreenToWorldPoint (
             new Vector3 (mousePoint.x, mousePoint.y, 10));
-        Vector3 pos2 = Camera.main.ViewportToScreenPoint (
+        /*Vector3 pos2 = Camera.main.ViewportToScreenPoint (
             new Vector3 (mousePoint.x / Screen.width,
                 mousePoint.y / Screen.height,10f));
-        transform.position = pos;
+        transform.position = pos;*/
     }
 }
