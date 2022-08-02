@@ -2,8 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum EnemyType
+{
+    normal,
+}
 public class EnemyEntity : MonoBehaviour
 {
+    public EnemyType EnemyType;
+    public EnemySetting setting;
+    public int hp;
+
+    public void Init()
+    {
+        hp = setting.maxHp;
+    }
+
     public void Rush()
     {
 
@@ -28,5 +41,8 @@ public class EnemyEntity : MonoBehaviour
     {
         return false;
     }
+    public void Die()
+    {
 
+    }
 }
